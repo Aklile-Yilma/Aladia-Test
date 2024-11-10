@@ -34,6 +34,6 @@ jobs:
       # Deploy to GitHub Pages using gh-pages
       - name: Deploy to GitHub Pages
         run: |
-          npm run deploy
+          npm run deploy r https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
