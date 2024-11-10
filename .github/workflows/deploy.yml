@@ -1,3 +1,4 @@
+
 name: Deploy Nuxt 3 to GitHub Pages
 
 on:
@@ -30,12 +31,11 @@ jobs:
       # Set up Git configuration for commit
       - name: Set up Git user
         run: |
-          git config --global user.email "aklileyilma@gmail.com"
-          git config --global user.name "Aklile Yilma"
-
+          git config --global user.email "you@example.com"
+          git config --global user.name "Your Name"
       # Deploy to GitHub Pages using gh-pages
       - name: Deploy to GitHub Pages
         run: |
-          npx gh-pages -d dist 
+          npx gh-pages -d dist -r https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
