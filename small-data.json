@@ -1,0 +1,17 @@
+{
+    "id": 1,
+    "url": "",
+    "title": "Complete Web Design: from Figma to Webflow - 2024 UI",
+    "headline": "3 in 1 Course: Learn to design websites with Figma, build with Webflow, and make a living freelancing.",
+    "rating": 4.8,
+    "image_750x422": "https://img-c.udemycdn.com/course/750x422/394676_ce3d_5.jpg",
+    "num_subscribers": 86246,
+    "objectives_summary": ["Create their own Python Programs", "Become an experienced Python Programmer", "Parse the Web and Create their own Games"],
+    "visible_instructors": [{
+        "id": 10260436,
+        "name": "Vako Shivil",
+        "url": ""
+    }],
+    "last_update_date": "2015-09-07",
+    "caption_languages": ["English"]
+}
