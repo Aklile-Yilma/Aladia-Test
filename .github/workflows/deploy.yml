@@ -34,4 +34,4 @@ jobs:
       # Deploy to GitHub Pages using gh-pages
       - name: Deploy to GitHub Pages
         run: |
-          npx gh-pages -d dist
+          npm run deploy
