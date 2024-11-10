@@ -86,7 +86,7 @@ const { title, items, lecture_count: sectionLectures, content_length: sectionLen
 
 .preview,
 .hide {
-  display: none;
+  display: block;
 }
 
 .lecture .hide {

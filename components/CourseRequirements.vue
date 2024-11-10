@@ -1,69 +1,48 @@
 <template>
-    <v-main class="main-container">
-      <p class="header">Requirements</p>
-      <v-list>
-        <v-list-item
-          v-for="(requirement, idx) in requirements"
-          :key="idx"
-          class="requirement"
-        >
-          <v-list-item-icon>
-            <v-icon small>mdi-record-circle</v-icon>
-          </v-list-item-icon>
-          <v-list-item-content>
-            <v-list-item-title>{{ requirement }}</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
-    </v-main>
-  </template>
-  
-  <script setup>
-  import { defineProps } from 'vue';
-  
-  const props = defineProps({
-    details: {
-      type: Object,
-      required: true,
-    },
-  });
-  
+  <div class="main-container">
+    <p class="header">Requirements</p>
+    <ul class="requirements-list">
+      <li v-for="(requirement, idx) in requirements" :key="idx" class="requirement">
+        {{ requirement }}
+      </li>
+    </ul>
+  </div>
+</template>
 
-  const requirements = props.details.prerequisites.items || [];
-  </script>
-  
-  <style scoped>
-  .main-container {
-    padding: 16px;
-  }
-  
-  .header {
-    font-size: 1.5rem;
-    font-weight: bold;
-  }
-  
-  .requirement {
-    padding-left: 1rem;
-  }
-  
-  .requirement .v-list-item-content {
-    margin-left: -2rem;
-  }
-  .mainContainer {
-    margin-top: 1rem;
+<script setup>
+import { defineProps } from 'vue';
+
+const props = defineProps({
+  details: {
+    type: Object,
+    required: true,
+  },
+});
+
+const requirements = props.details.prerequisites.items || [];
+</script>
+
+<style scoped>
+.main-container {
+  padding: 16px;
+  margin-top: 1rem;
 }
 
 .header {
-    font-size: 25px;
-    font-weight: 900;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
 }
 
-.requirementsList {
-    list-style: disc;
+.requirements-list {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin: 0;
 }
 
 .requirement {
-
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 0.5rem;
 }
-  </style>
-  
+</style>
