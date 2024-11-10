@@ -30,12 +30,12 @@ jobs:
       # Set up Git configuration for commit
       - name: Set up Git user
         run: |
-          git config --global user.email "you@example.com"
-          git config --global user.name "Your Name"
+          git config --global user.email "aklileyilma@gmail.com"
+          git config --global user.name "Aklile Yilma"
 
       # Deploy to GitHub Pages using gh-pages
       - name: Deploy to GitHub Pages
         run: |
-          npx gh-pages -d dist -r https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+          npx gh-pages -d dist 
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Use GitHub token for authentication
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
