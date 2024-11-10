@@ -24,4 +24,12 @@ export default defineNuxtConfig({
   },
 
   compatibilityDate: "2024-11-09",
+  // github pages
+  ssr: false,  
+  // target: 'static',
+  app: {
+    baseURL: '/Aladia-Test/',
+    buildAssetsDir: 'assets',
+  }
 });
+
