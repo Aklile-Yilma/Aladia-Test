@@ -9,6 +9,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      # Checkout the code from the repo
       - name: Checkout code
         uses: actions/checkout@v2
 
@@ -16,12 +17,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '22'
-
-      - name: Set up Git user
-        run: |
-          git config --global user.email "aklileyilma@gmail.com"
-          git config --global user.name "Aklile Yilma"
+          node-version: '16'
 
       # Install dependencies
       - name: Install dependencies
@@ -31,9 +27,15 @@ jobs:
       - name: Build Nuxt project
         run: npm run generate
 
+      # Set up Git configuration for commit
+      - name: Set up Git user
+        run: |
+          git config --global user.email "you@example.com"
+          git config --global user.name "Your Name"
+
       # Deploy to GitHub Pages using gh-pages
       - name: Deploy to GitHub Pages
         run: |
-          npm run deploy r https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+          npx gh-pages -d dist -r https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Use GitHub token for authentication
