@@ -4,14 +4,27 @@
     "title": "Complete Web Design: from Figma to Webflow - 2024 UI",
     "headline": "3 in 1 Course: Learn to design websites with Figma, build with Webflow, and make a living freelancing.",
     "rating": 4.8,
-    "image_750x422": "https://img-c.udemycdn.com/course/750x422/394676_ce3d_5.jpg",
+    "image_750x422": "https://img-c.udemycdn.com/course/240x135/2094300_ebf0_9.jpg",
     "num_subscribers": 86246,
-    "objectives_summary": ["Create their own Python Programs", "Become an experienced Python Programmer", "Parse the Web and Create their own Games"],
-    "visible_instructors": [{
-        "id": 10260436,
-        "name": "Vako Shivil",
-        "url": ""
-    }],
+    "objectives_summary": [
+        "You will learn graphic design concepts like layout, typography, visual hierarchy, design tricks, and more.",
+        "You will learn how to design beautiful websites using Figma, an interface design tool used by designers at Uber, Airbnb and Microsoft.",
+        "You will learn how to take the designs and build them into websites using Webflow — a powerful site builder used by teams at Adobe, Dell, NASA and more.",
+        "You will learn secret tips of freelance web designers and how they make great money freelancing online."
+      ],
+    "visible_instructors": [
+        {
+          "_class": "user",
+          "title": "Vako Shvili",
+          "name": "Vako",
+          "display_name": "Vako Shvili",
+          "job_title": "Web Designer & Best-Selling Instructor",
+          "image_50x50": "https://img-c.udemycdn.com/user/50x50/20595220_d6b0_8.jpg",
+          "image_100x100": "https://img-c.udemycdn.com/user/100x100/20595220_d6b0_8.jpg",
+          "initials": "VS",
+          "url": "/user/vako-imnaishvili/"
+        }
+      ],
     "last_update_date": "2015-09-07",
     "caption_languages": ["English"]
 }
