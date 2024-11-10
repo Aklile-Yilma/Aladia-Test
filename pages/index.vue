@@ -2,30 +2,30 @@
   <main>
     <section>
       <Header />
-      <StickyCardContent
-        v-if="fetched"
-        :courseDetails="courseDetails"
-        :additionalDetails="additionalDetails"
-      />
-      <SingleCourseHeader
-        v-if="fetched"
-        :courseDetails="courseDetails"
-        :additionalDetails="additionalDetails"
-      />
+      <StickyCardContent v-if="fetched" :courseDetails="courseDetails" :additionalDetails="additionalDetails" />
+      <SingleCourseHeader v-if="fetched" :courseDetails="courseDetails" :additionalDetails="additionalDetails" />
       <div v-if="fetched" class="body">
         <CourseObjectives :courseDetails="courseDetails" />
+        <ExploreRelatedTopics />
         <div class="includesSection">
           <ThisCourseIncludes :details="additionalDetails" />
         </div>
         <CourseContent :details="additionalDetails" />
-        <CourseRequirements :details="additionalDetails" /> 
+        <MoreSections />
+
+        <CourseRequirements :details="additionalDetails" />
         <CourseDescription :details="additionalDetails" />
+        <FeaturedReviews />
         <InstructorsSection :details="additionalDetails" />
+        <!-- <StudentFeedback :details="additionalDetails" /> -->
         <div id="boundary">
           <ReviewsSection :details="additionalDetails" />
-        </div>  
+        </div>
       </div>
       <Bottom />
+      < <!-- Show the loading spinner until data is fetched -->
+        <!-- <LoadingSpinner v-if="!fetched" /> -->
+
     </section>
   </main>
 </template>
@@ -37,11 +37,15 @@ import StickyCardContent from '~/components/StickyCardContent.vue';
 import SingleCourseHeader from '~/components/SingleCourseHeader.vue';
 import CourseObjectives from '~/components/CourseObjectives.vue';
 import ThisCourseIncludes from '~/components/ThisCourseIncludes.vue';
+// import LoadingSpinner from '../loading-spinner/LoadingSpinner.vue';  
 import CourseContent from '~/components/CourseContent.vue';
 import CourseRequirements from '~/components/CourseRequirements.vue';
 import InstructorsSection from '~/components/InstructorsSection.vue';
 import CourseDescription from '~/components/CourseDescription.vue';
 import ReviewsSection from '~/components/ReviewSection.vue';
+import ExploreRelatedTopics from '~/components/ExploreRelatedTopics.vue';
+import MoreSections from '~/components/MoreSections.vue';
+import FeaturedReviews from '~/components/FeaturedReviews.vue';
 import Header from '~/layout/Header.vue';
 import Bottom from '~/layout/Bottom.vue';
 import details from '~/small-data.json';
@@ -64,18 +68,18 @@ onMounted(() => {
 
 <style scoped>
 .body {
-    max-width: 45rem;
-    margin: 2rem auto 0 auto;
-    padding: 0 0.5rem;
+  max-width: 45rem;
+  margin: 2rem auto 0 auto;
+  padding: 0 0.5rem;
 }
 
 @media only screen and (min-width: 1080px) {
-    .includesSection {
-        display: none;
-    }
+  .includesSection {
+    display: none;
+  }
 
-    .body {
-        margin: 2rem auto 0 10%;
-    }
+  .body {
+    margin: 2rem auto 0 10%;
+  }
 }
 </style>

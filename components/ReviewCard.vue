@@ -1,104 +1,169 @@
 <template>
-    <main class="mainContainer">
-      <p class="userName">{{ review.user.public_display_name }}</p>
-      
-      <div class="rating">
-        <div class="wrapper">
-          <StarsRating :rating="parseInt(review.rating)" fontSize="1rem" />
+  <div class="review-card">
+    <!-- User Info and Rating -->
+    <div class="user-info">
+      <div class="user-avatar">{{ review.user.public_display_name.charAt(0).toUpperCase() }}</div>
+      <div class="user-details">
+        <p class="user-name">{{ review.user.public_display_name }}</p>
+        <div class="rating">
+          <v-icon v-for="n in 5" :key="n" :class="{ 'filled-star': n <= parseInt(review.rating) }" class="star-icon">
+            mdi-star
+          </v-icon>
+          <span class="posting-time">{{ review.created_formatted_with_time_since }}</span>
         </div>
-        <p class="postingTime">{{ review.created_formatted_with_time_since }}</p>
       </div>
-      
-      <!-- Render HTML content using v-html -->
-      <div v-html="review.content_html"></div>
-      
-      <p class="footer">
-      <!-- Vuetify's thumbs-up and thumbs-down icons -->
-      <button @click="handleThumbUp" class="buttonIcon">
+      <v-icon class="more-options-icon">mdi-dots-horizontal</v-icon>
+    </div>
+
+    <!-- Review Content -->
+    <div v-html="review.content_html" class="review-text"></div>
+
+    <!-- Footer with Helpful Icons and Report -->
+    <div class="review-footer">
+      <p class="helpful-text">Helpful?</p>
+      <button @click="handleThumbUp" class="button-icon">
         <v-icon>mdi-thumb-up-outline</v-icon>
       </button>
-      <button @click="handleThumbDown" class="buttonIcon">
+      <button @click="handleThumbDown" class="button-icon">
         <v-icon>mdi-thumb-down-outline</v-icon>
       </button>
       <span class="report">Report</span>
-    </p>
-    </main>
-  </template>
-  
-  <script setup>
-  import { defineProps } from 'vue';
-  import StarsRating from './StarsRating.vue';
-  
-  const props = defineProps({
-    review: {
-      type: Object,
-      required: true
-    }
-  });
-  
-  // Method to handle the thumbs-up click
-  const handleThumbUp = () => {
-    console.log('Thumb Up clicked');
-  };
-  
-  // Method to handle the thumbs-down click
-  const handleThumbDown = () => {
-    console.log('Thumb Down clicked');
-  };
-  </script>
-  
-  <style scoped>
-  .mainContainer {
-    padding: 1rem;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 1rem;
+    </div>
+  </div>
+</template>
+
+<script setup>
+import { defineProps } from 'vue';
+import StarsRating from './StarsRating.vue';
+
+const props = defineProps({
+  review: {
+    type: Object,
+    required: true
   }
-  
-  .userName {
-    font-size: 1.1rem;
-    font-weight: bold;
-  }
-  
-  .rating {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 0.5rem;
-  }
-  
-  .wrapper {
-    display: flex;
-  }
-  
-  .postingTime {
-    font-size: 0.9rem;
-    color: #888;
-  }
-  
-  .footer {
-    margin-top: 1rem;
-    display: flex;
-    align-items: center;
-  }
-  
-  .buttonIcon {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0.5rem;
-    margin-right: 0.5rem;
-  }
-  
-  .icons {
-    font-size: 1.5rem;
-    color: #888;
-  }
-  
-  .report {
-    color: #007bff;
-    cursor: pointer;
-  }
-  </style>
-  
+});
+
+// Method to handle the thumbs-up click
+const handleThumbUp = () => {
+  console.log('Thumb Up clicked');
+};
+
+// Method to handle the thumbs-down click
+const handleThumbDown = () => {
+  console.log('Thumb Down clicked');
+};
+</script>
+
+<style scoped>
+.review-card {
+  padding: 1rem;
+  background-color: #fff;
+  margin-bottom: 1rem;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #555;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1rem;
+  margin-right: 0.75rem;
+}
+
+.user-details {
+  flex-grow: 1;
+}
+
+.user-name {
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  margin-top: 0.25rem;
+}
+
+
+.star-icon {
+  color: #ccc;
+  font-size: 1rem;
+  margin-right: 2px;
+}
+
+.filled-star {
+  color: #b4690e;
+  /* Color for filled stars */
+}
+
+
+.posting-time {
+  font-size: 0.8rem;
+  color: #888;
+  margin-left: 0.5rem;
+}
+
+.more-options-icon {
+  font-size: 1.2rem;
+  color: #888;
+  cursor: pointer;
+}
+
+.review-text {
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.review-footer {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.helpful-text {
+  margin-right: 0.5rem;
+}
+
+.button-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem;
+  margin-right: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.button-icon v-icon {
+  font-size: 1.2rem;
+  color: #888;
+}
+
+.report {
+  color: #007bff;
+  cursor: pointer;
+  margin-left: 1rem;
+}
+
+.report:hover {
+  color: #0056b3;
+}
+</style>
