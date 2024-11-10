@@ -26,10 +26,6 @@
         </div>  
       </div>
       <Bottom />
-      <
-      <!-- Show the loading spinner until data is fetched -->
-      <!-- <LoadingSpinner v-if="!fetched" /> -->
-
     </section>
   </main>
 </template>
@@ -41,7 +37,6 @@ import StickyCardContent from '~/components/StickyCardContent.vue';
 import SingleCourseHeader from '~/components/SingleCourseHeader.vue';
 import CourseObjectives from '~/components/CourseObjectives.vue';
 import ThisCourseIncludes from '~/components/ThisCourseIncludes.vue';
-// import LoadingSpinner from '../loading-spinner/LoadingSpinner.vue';  
 import CourseContent from '~/components/CourseContent.vue';
 import CourseRequirements from '~/components/CourseRequirements.vue';
 import InstructorsSection from '~/components/InstructorsSection.vue';

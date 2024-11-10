@@ -3,11 +3,11 @@
       <div class="body">
         <section class="categoriesSection">
           <router-link to="/">
-            <p class="subCategory">Design</p>
+            <p class="subCategory">Design ></p>
           </router-link>
           <i class="fa-solid fa-chevron-right sub-category-arrow"></i>
           <router-link to="/">
-            <p class="subCategory">Web Design</p>
+            <p class="subCategory">Web Design ></p>
           </router-link>
           <router-link to="/">
             <p class="subCategory">Web Design</p>

@@ -2,7 +2,7 @@
   "id": 394676,
   "content_length_video": 51060,
   "num_additional_assets": 3,
-  "requirements_data": {
+  "prerequisites": {
     "items": [
       "You will need a computer with internet access.",
       "You will create free accounts with Figma and Webflow."
